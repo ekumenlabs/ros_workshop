@@ -1,0 +1,4 @@
+[submodule "Noah-bot-simulation"]
+	path = Noah-bot-simulation
+	url = https://github.com/Ekumen-OS/Noah-bot-simulation.git
+  branch = main

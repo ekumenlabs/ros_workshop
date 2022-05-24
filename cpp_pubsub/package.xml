@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cpp_pubsub</name>
+  <version>0.1.0</version>
+  <description>Example C++ ROS package</description>
+  <maintainer email="repos@ekumenlabs.com">Ekumen Repository Management</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+</package>

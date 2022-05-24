@@ -1,0 +1,8 @@
+gazebo9
+libgazebo9-dev
+python-rosdep
+python-rosinstall
+python-rosinstall-generator
+python-wstool
+ros-melodic-desktop
+ros-melodic-gazebo-ros-pkgs

@@ -1,0 +1,4 @@
+<launch>
+  <node name="talker" pkg="py_pubsub" type="talker.py" />
+  <test test-name="talker_listener_test" pkg="py_pubsub" type="talker_listener_test.py" />
+</launch>
