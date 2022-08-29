@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>control_robot</name>
+  <version>1.0.0</version>
+  <description>Este paquete permite controlar un robot utilizando un controlador proporcional</description>
+
+  <maintainer email="jane.doe@example.com">Jane Doe</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>tf</depend>
+</package>

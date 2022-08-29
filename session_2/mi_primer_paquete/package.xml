@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mi_primer_paquete</name>
+  <version>1.0.0</version>
+  <description>Mi primer paquete de ROS</description>
+
+  <maintainer email="jane.doe@example.com">Jane Doe</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+</package>
