@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen"
+        args="-d $(find noah_map_navigation)/config/rviz.rviz" />
+</launch>
