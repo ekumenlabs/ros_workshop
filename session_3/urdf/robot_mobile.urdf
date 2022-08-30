@@ -1,0 +1,168 @@
+<?xml version="1.0" ?>
+<robot name="robot_mobile" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <material name="Negro">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="Rojo">
+    <color rgba="0.8 0.0 0.0 1.0"/>
+  </material>
+  <material name="Blanco">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+  <material name="Azul">
+    <color rgba="0.0 0.0 0.8 1.0"/>
+  </material>
+
+  <link name="base_footprint">
+    <inertial>
+      <mass value="0.0001"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.04"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link name="base_link">
+    <inertial>
+      <mass value="5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.0282916666667" ixy="0" ixz="0" iyy="0.0282916666667" iyz="0" izz="0.05625"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.15"/>
+      </geometry>
+      <material name="Blanco"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0 " xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.15"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rueda_derecha">
+    <visual>
+      <origin rpy="1.57079632679 0  0 " xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.04"/>
+      </geometry>
+      <material name="Rojo"/>
+    </visual>
+    <collision>
+      <origin rpy="1.57079632679 0 0 " xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.04"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="2.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.00108333333333" ixy="0" ixz="0" iyy="0.00108333333333" iyz="0" izz="0.002"/>
+    </inertial>
+  </link>
+
+  <joint name="rueda_derecha_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rueda_derecha"/>
+    <origin rpy="0 0 0" xyz="0.0 0.15 0.0"/>
+    <axis rpy="0  0" xyz="0 1 0"/>
+    <limit effort="100" velocity="100"/>
+  </joint>
+
+  <link name="rueda_izquierda">
+    <visual>
+      <origin rpy="1.57079632679 0  0 " xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.04"/>
+      </geometry>
+      <material name="Rojo"/>
+    </visual>
+    <collision>
+      <origin rpy="1.57079632679 0 0 " xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.04"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="2.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.00108333333333" ixy="0" ixz="0" iyy="0.00108333333333" iyz="0" izz="0.002"/>
+    </inertial>
+  </link>
+
+  <joint name="rueda_izquierda_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rueda_izquierda"/>
+    <origin rpy="0 0 0" xyz="0.0 -0.15 0.0"/>
+    <axis rpy="0  0" xyz="0 1 0"/>
+    <limit effort="100" velocity="100"/>
+  </joint>
+
+  <link name="rueda_frontal">
+    <visual>
+      <origin rpy="1.57079632679 0 0" xyz="0 0.02 0"/>
+      <geometry>
+        <sphere radius="0.025"/>
+      </geometry>
+      <material name="Negro"/>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.025"/>
+      </geometry>
+      <origin rpy="1.57079632679 0 0" xyz="0 0.02 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+  <joint name="rueda_frontal_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="rueda_frontal"/>
+    <origin rpy="-1.57079632679 0 0" xyz="0.115 0.0 0.007"/>
+  </joint>
+
+  <link name="rueda_trasera">
+    <visual>
+      <origin rpy="1.57079632679 0 0" xyz="0.02 0.02 0 "/>
+      <geometry>
+        <sphere radius="0.025"/>
+      </geometry>
+      <material name="Negro"/>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.025"/>
+      </geometry>
+      <origin rpy="1.57079632679 0 0" xyz="0 0.02 0 "/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <joint name="rueda_trasera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="rueda_trasera"/>
+    <origin rpy="-1.57079632679 0 0" xyz="-0.135 0.0 0.009"/>
+  </joint>
+</robot>
