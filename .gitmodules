@@ -1,7 +1,3 @@
-[submodule "Noah-bot-simulation"]
-	path = Noah-bot-simulation
-	url = https://github.com/Ekumen-OS/Noah-bot-simulation.git
-  branch = main
 [submodule "session_4/src/noah-bot-simulation"]
 	path = session_4/src/noah-bot-simulation
 	url = https://github.com/Ekumen-OS/Noah-bot-simulation.git
