@@ -14,37 +14,12 @@ constexpr double kSquareSideLength = 1.0f;
 void move(const ros::Publisher& velocity_pub, double linear_speed,
           double linear_distance) {
   geometry_msgs::Twist velocity_msg;
-  velocity_msg.linear.x = linear_speed;
-  velocity_msg.linear.y = 0.0f;
-  velocity_msg.linear.z = 0.0f;
-  velocity_msg.angular.x = 0.0f;
-  velocity_msg.angular.y = 0.0f;
-  velocity_msg.angular.z = 0.0f;
+
 
   ROS_INFO("Moviendo robot una distancia de %lf", linear_distance);
 
-  ros::Rate loop_rate(10);
-  double traveled_distance = 0.0f;
-  const double start_time = ros::Time::now().toSec();
-  while (ros::ok() && traveled_distance < linear_distance) {
-    velocity_pub.publish(velocity_msg);
+  // TODO: Implementar usando la implementacion de rotate como inspiracion.
 
-    ros::spinOnce();
-    loop_rate.sleep();
-
-    /**
-     * La distancia se estima a lazo abierto a partir de la velocidad y el
-     * tiempo trascurrido (d(t) = v*t).
-     */
-    traveled_distance = linear_speed * (ros::Time::now().toSec() - start_time);
-  }
-
-  /**
-   * Detengo el robot.
-   */
-  ROS_INFO("Deteniendo robot");
-  velocity_msg.linear.x = 0.0f;
-  velocity_pub.publish(velocity_msg);
 }
 
 /**

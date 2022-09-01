@@ -15,9 +15,7 @@ class ControlRobot {
    * Constructor.
    */
   ControlRobot(const geometry_msgs::Pose2D& goal_pose) : goal_pose_(goal_pose) {
-    velocity_pub_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
-    odometry_sub_ =
-        nh_.subscribe("/odom", 10, &ControlRobot::odometryCallback, this);
+    // TODO: Inicializar velocity_pub_ y odometry_sub_.
   }
 
   /**
@@ -28,8 +26,9 @@ class ControlRobot {
              msg->pose.pose.position.y);
 
     geometry_msgs::Pose2D current_pose = poseToPose2D(msg->pose.pose);
-    velocity_pub_.publish(proportional_controller_.computeVelocityTowardsGoal(
-        current_pose, goal_pose_));
+    // TODO: Computar accion del controlador.
+
+    // TODO: Publicar el comando de velocidad resultante.
   }
 
  private:

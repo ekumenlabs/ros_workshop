@@ -14,8 +14,8 @@ geometry_msgs::Twist ProportionalController::computeVelocityTowardsGoal(
     return velocity;
   }
 
-  velocity.linear.x = computeLinearSpeedToGoal(current_pose, goal_pose);
-  velocity.angular.z = computeAngularSpeedToLookAtGoal(current_pose, goal_pose);
+  // TODO: Llenar el mensaje de velocidad con la velocidad lineal y angular antes de retornar el valor. 
+
   return velocity;
 }
 

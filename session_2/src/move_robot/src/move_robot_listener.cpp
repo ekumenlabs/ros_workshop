@@ -5,7 +5,7 @@
  * Función de devolución de llamada (callback) del tópico `/cmd_vel`.
  */
 void velocityCallback(const geometry_msgs::Twist::ConstPtr& msg) {
-  ROS_INFO("Velocidad lineal en X: [%f]", msg->linear.x);
+  // TODO: Imprimir velocidad lineal en x.
 }
 
 /**
@@ -14,11 +14,8 @@ void velocityCallback(const geometry_msgs::Twist::ConstPtr& msg) {
 int main(int argc, char** argv) {
   ros::init(argc, argv, "move_robot_listener");
   ros::NodeHandle nh;
-
-  ros::Subscriber chatter_sub =
-      nh.subscribe("/cmd_vel", 1000, velocityCallback);
-
-  ros::spin();
-
+  
+  // TODO: Implementar nodo para escuchar mensajes del nodo move_robot.
+  
   return 0;
 }
